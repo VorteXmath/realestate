@@ -1,0 +1,34 @@
+@media(max-width:992px) {
+    .navbar-list {
+        display: none !important;
+    }
+
+    /* nav.container {
+        justify-content: center !important;
+    } */
+
+    .logo h1 {
+        font-size: 1.50rem;
+        color: #fff;
+    }
+
+    .logo span{
+        color:#222;
+    }
+
+    header.header {
+        background: #004274;
+        height: 60px;
+    }
+
+    .btn-toggle-sidebar {
+        display: block;
+        color: #fff;
+        font-size: 1.50rem;
+        align-self: center;
+    }
+
+    .btn-toggle-sidebar {
+        cursor: pointer;
+    }
+}

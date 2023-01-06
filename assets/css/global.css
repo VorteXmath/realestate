@@ -1,0 +1,5 @@
+/* disable click event */
+.click-disabled {
+    pointer-events: none;
+    cursor: default;
+}
