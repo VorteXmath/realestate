@@ -1,4 +1,4 @@
-<div class="container-xl p-4 d-flex flex-column flex-lg-row">
+<div  class="container-xl p-4 d-flex flex-column flex-lg-row">
     <div class="card-aboutus">
         <h4>Hakkımızda</h4>
         <p>1981 yılında faaliyete geçen Sarınokta Gayrimenkul, kaliteli hizmet ve şeffaf bilgi anlayışını benimseyerek gayrimenkul profesyonellerini ve bireyleri doğru, kapsamlı referans bilgilerle aynı çatı altında buluşturan güvenilir bir gayrimenkul bilgi ve pazarlama platformudur.

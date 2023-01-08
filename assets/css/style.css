@@ -78,7 +78,7 @@ header.header-wrap {
 
 nav.navbar {
     height: 90px;
-    /* border-bottom: 1px solid rgba(238, 238, 238, 0.24); */
+    border-bottom: 1px solid rgba(238, 238, 238, 0.24);
 }
 
 .nav-link-item {
@@ -594,10 +594,10 @@ button {
 }
 
 
-.wrapper-filter{
+.wrapper-filter {
     position: relative;
     width: 100%;
-    display:block;
+    display: block;
     transition-property: all;
     transition-duration: 1s;
     transition-delay: 1s;
@@ -614,7 +614,7 @@ button {
         display: none;
         align-items: center;
         justify-content: center;
-        z-index: 313131;
+        z-index: 3;
     }
 
     .wrapper-filter.filter-on {
@@ -622,7 +622,18 @@ button {
     }
 }
 
-.xrow{
+.xrow {
     background: #b2e1ff;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+.container-wrapper {
+    width: 100%;
+    z-index: 1337;
+}
+
+.scrolled {
+    position: fixed;
+    top: 0;
+    background: #004274;
 }

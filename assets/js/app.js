@@ -12,27 +12,18 @@ function dynamicHeader() {
 
 
 //dynamic navbar
-var hcontainer = document.querySelector(".container-header");
-var navLink = document.querySelectorAll("ul > li > a");
-var navLogo = document.querySelector(".logo-navigator");
-
-function dynamicNavbar() {
-    window.addEventListener("scroll", (e) => {
-
-        if (window.scrollY == 0) {
-            hcontainer.classList.remove("scrolled");
-        }
-        if (window.scrollY >= 300) {
-            navLogo.classList.remove("d-none");
-        }
-        if (window.scrollY < 300) {
-            if (!navLogo.classList.contains("d-none")) {
-                navLogo.classList += " d-none";
+let dynamicNavbar = () => {
+    let navbar = document.querySelector(".container-wrapper");
+    window.addEventListener("scroll", () => {
+        let scrollY = window.scrollY;
+        if (scrollY > 100) {
+            if (!navbar.classList.contains("scrolled")) {
+                navbar.classList.add("scrolled");
             }
         }
-        if (window.scrollY > 0) {
-            if (!hcontainer.classList.contains("scrolled")) {
-                hcontainer.classList += " scrolled";
+        else if (scrollY <= 200) {
+            if (navbar.classList.contains("scrolled")) {
+                navbar.classList.remove("scrolled")
             }
         }
     })
@@ -298,26 +289,26 @@ function filterToggle() {
     }
 }
 
-let toggleFilterBtn = document.querySelector('.btn-toggle-filter')
-let filterWrapper = document.querySelector(".wrapper-filter");
-toggleFilterBtn.addEventListener('click',()=>{
-    filterWrapper.classList.toggle('filter-on')
-})
-filterWrapper.addEventListener('click',e=>{
-    if(e.target.classList.contains("wrapper-filter")){
-        filterWrapper.classList.toggle('filter-on')
-    }
-})
+// let toggleFilterBtn = document.querySelector('.btn-toggle-filter')
+// let filterWrapper = document.querySelector(".wrapper-filter");
+// toggleFilterBtn.addEventListener('click', () => {
+//     filterWrapper.classList.toggle('filter-on')
+// })
+// filterWrapper.addEventListener('click', e => {
+//     if (e.target.classList.contains("wrapper-filter")) {
+//         filterWrapper.classList.toggle('filter-on')
+//     }
+// })
 
-window.addEventListener('scroll',()=>{
-    if(window.scrollY > 70){
-        $(".side-filters").css("position","fixed");
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 70) {
+        $(".side-filters").css("position", "fixed");
     }
     // if(window.scrollY > 1180){
     //     $(".side-filters").css("bottom","310px")
     // }
-    else{
-        $(".side-filters").css("position","relative");
-        $(".side-filters").css("top","10px");
+    else {
+        $(".side-filters").css("position", "relative");
+        $(".side-filters").css("top", "10px");
     }
 })

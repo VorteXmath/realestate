@@ -31,6 +31,7 @@ require_once "init.php";
     <?php require_once "loadScripts.php" ?>
     <script>
         dynamicHeader();
+        dynamicNavbar();
         getSelectPicker();
         $('.carousel-prop').owlCarousel({
             nav: false,

@@ -415,10 +415,15 @@
  }
 
  .card-location {
+     position: relative;
      margin-top: 0px;
      display: flex;
      flex-direction: column;
-     height: fit-content;
+ }
+
+ body>section.bg-white.mt-5>div>div.card-location.p-5.d-flex.justify-content-center>iframe {
+     position: sticky;
+     top: 100px;
  }
 
  .filter-input {
@@ -704,7 +709,7 @@
 
  .input-number {
      width: 45px !important;
-     padding: 0 5px!important;
+     padding: 0 5px !important;
      margin-left: 6px;
  }
 

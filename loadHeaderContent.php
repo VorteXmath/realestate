@@ -1,7 +1,10 @@
 <div class="header-content d-flex flex-column justify-content-center align-items-center h-100 text-white">
+    <div class="header-head mb-5 text-center">
+        <h4 style="-webkit-filter: drop-shadow(10px 10px 10px #222);filter: drop-shadow(10px 10px 10px #222);">HIZLI, GÜVENİLİR, PROFESYONEL ÇÖZÜM ORTAĞINIZ
+        </h4>
+    </div>
 
-
-    <form style="-webkit-filter: drop-shadow(10px 10px 10px #222);filter: drop-shadow(10px 10px 10px #222);z-index:5" class="d-flex flex-column" action="ilanlar.php" method="GET">
+    <form style="-webkit-filter: drop-shadow(10px 10px 10px #222);filter: drop-shadow(10px 10px 10px #222);z-index:5;position:sticky;top:100px;" class="d-flex flex-column" action="ilanlar.php" method="GET">
         <div class="advanced-radio my-1 w-50" style-type="grid">
             <input label="Tümü" type="radio" name="type" value="all" checked>
             <input label="Konut" type="radio" name="type" value="house">
@@ -29,8 +32,4 @@
         </div>
 
     </form>
-    <div class="header-head mt-5 text-center">
-        <h4 style="-webkit-filter: drop-shadow(10px 10px 10px #222);filter: drop-shadow(10px 10px 10px #222);">HIZLI, GÜVENİLİR, PROFESYONEL ÇÖZÜM ORTAĞINIZ
-        </h4>
-    </div>
 </div>
