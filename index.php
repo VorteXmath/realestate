@@ -18,6 +18,7 @@ require_once "init.php";
     <!-- section last properties -->
     <section class="last-properties container-xl position-relative">
         <?php require_once "loadLastProperties.php" ?>
+
     </section>
     <!-- section about us -->
     <section class="bg-white mt-5">

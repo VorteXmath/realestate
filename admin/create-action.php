@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST['submit'])) {
     require_once "class/connect.php";
     require_once "class/routing.php";
@@ -17,6 +18,11 @@ if (isset($_POST['submit'])) {
     $floor = isset($_REQUEST['floor']) ? $_REQUEST['floor'] : null;
     $floors = isset($_REQUEST['floors']) ? $_REQUEST['floors'] : null;
     $bathroom = isset($_REQUEST['bathroom']) ? $_REQUEST['bathroom'] : null;
+    $agentName = isset($_SESSION['agentName']) ? $_SESSION['agentName'] : null;
+    $agentPhone = isset($_SESSION['agentPhone']) ? $_SESSION['agentPhone'] : null;
+
+
+
 
     try {
 
@@ -30,8 +36,8 @@ if (isset($_POST['submit'])) {
         // $connect->$db->commit();
         $connect = new Connect();
 
-        $query = "INSERT INTO tblproperty(type, prop_case, title, city, district, quarter, comment, room, area, cost, age, floor, floors, bathrooms) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        $connect->create($query, array($type, $prop_case, $title, $city, $district, $quarter, $comment, $room, $area, $cost, $age, $floor, $floors, $bathroom));
+        $query = "INSERT INTO tblproperty(type, prop_case, title, city, district, quarter, comment, room, area, cost, age, floor, floors, bathrooms,agent_name,agent_phone) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $connect->create($query, array($type, $prop_case, $title, $city, $district, $quarter, $comment, $room, $area, $cost, $age, $floor, $floors, $bathroom, $agentName, $agentPhone));
 
         //get last insert id to sync prop images 
         $lastInsertId = $connect->lastInsertId;

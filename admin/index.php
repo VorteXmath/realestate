@@ -20,7 +20,7 @@ require_once "../init.php";
                         <img src="assets/img/Hamburger_icon.png" alt="">
                     </div>
                 </div>
-                <div><a id="link-call" class="btn btn-danger" href="tel:+90 (541) 505 4991">Çıkış yap<i class="fa-solid fa-right-from-bracket ml-5"></i></a></div>
+                <div><a id="link-call" class="btn btn-danger" href="tel:+91 (234) 567 8910">Çıkış yap<i class="fa-solid fa-right-from-bracket ml-5"></i></a></div>
             </div>
             <!-- open filter modal button -->
             <?php require_once "loadFilterModal.php" ?>

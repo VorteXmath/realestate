@@ -36,7 +36,6 @@ try {
     $getProperties = $connect->read($getPropertiesQuery);
     while ($row = $getProperties->fetch(PDO::FETCH_ASSOC)) {
         $getImages = $connect->read($getImagesQuery, array($row['id'])); ?>
-
         <div class="card-property">
             <a href="<?php echo "ilan.php?ilan=" . $row['id'] ?>" class="property-card-image owl-carousel owl-theme">
                 <?php
@@ -59,7 +58,7 @@ try {
                 </div>
                 <h5 class="my-1"><?php echo number_format_unchanged_precision($row['cost'], ',', '.') . " TL" ?></h5>
             </div>
-            <div style="bottom:0"class="property-card-footer bg-faded d-flex justify-content-between p-2 justify-self-end">
+            <div style="bottom:0" class="property-card-footer bg-faded d-flex justify-content-between p-2 justify-self-end">
                 <div><?php echo $row['agent_name'] ?></div>
                 <div><?php echo timeAgo($row['date']) ?></div>
             </div>
