@@ -1,7 +1,7 @@
 <?php
 require_once "init.php";
 if (isset($_SESSION['logon'])) {
-    Routing::go("index.php");
+    Routing::go("index.php",1);
 } else {
 } ?>
 <!DOCTYPE html>

@@ -1,7 +1,7 @@
 <?php
 setlocale(LC_ALL, 'tr_TR.UTF-8');
 
-require_once "../../init.php";
+require_once "../init.php";
 
 $w     = array();
 $where = '';
@@ -42,7 +42,7 @@ try {
                     <?php
                     while ($imgrow = $getImages->fetch(PDO::FETCH_ASSOC)) { ?>
                         <div class="slide">
-                            <img src="<?php echo $imgrow['dir'] ?>" loading="lazy">
+                            <img src="<?php echo "../" . $imgrow['dir'] ?>" loading="lazy">
                         </div>
                     <?php
                     } ?>
@@ -60,7 +60,7 @@ try {
             <td class="align-middle text-center col-md-2" scope="col"><?php echo $row['title'] ?></td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['area'] ?></td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['room'] ?></td>
-            <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['cost'] ?></td>
+            <td class="align-middle text-center col-md-1" scope="col"><?php echo number_format_unchanged_precision($row['cost']) . " TL" ?></td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['city'] ?>/<?php echo $row['district'] ?><br> <?php echo $row['quarter'] ?></td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['date'] ?></td>
         </tr>

@@ -1,4 +1,4 @@
-<?php require_once "../init.php";
+<?php require_once "init.php";
 ?>
 <div class="filter-modal">
     <div class="filters">

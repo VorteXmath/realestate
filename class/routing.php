@@ -1,5 +1,3 @@
-//routing class
-
 <?php
 class Routing
 {

@@ -1,4 +1,4 @@
-<?php require_once("class/connect.php") ?>
+<?php require_once("init.php") ?>
 
 <form action="create-action.php" method="POST" enctype="multipart/form-data">
     <div class="form-group my-2">

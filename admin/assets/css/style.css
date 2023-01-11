@@ -882,13 +882,21 @@
      background: #0275d8;
      color: #fff;
      border-radius: 5px;
-
+     border: 1px solid rgba(0, 0, 0, 0);
  }
 
  form#form-login>.form-body>.btn-login:hover {
      background: #0045ac;
      cursor: pointer;
      border: 1px solid #eee;
+ }
+
+ .fa-chevron-right {
+     filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
+ }
+
+ .fa-chevron-left {
+     filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
  }
 
  /* admin login page end*/
