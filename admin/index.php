@@ -2,7 +2,7 @@
 require_once "init.php";
 if (!isset($_SESSION['logon']) or !isset($_SESSION['username']) or !isset($_SESSION['full_name'])) {
     echo "forbidden";
-    routing::go("login.php",2);
+    routing::go("login.php", 2);
     exit;
 } else {
 
@@ -26,7 +26,7 @@ if (!isset($_SESSION['logon']) or !isset($_SESSION['username']) or !isset($_SESS
                             <img src="assets/img/Hamburger_icon.png" alt="">
                         </div>
                     </div>
-                    <div><a id="btn-log-off" class="btn btn-danger" href="action-logoff.php">Çıkış yap<i style="margin-left:5px"class="fa-solid fa-right-from-bracket"></i></a></div>
+                    <div><a id="btn-log-off" class="btn btn-danger" onclick="logOff()" href="#">Çıkış yap<i style="margin-left:5px" class="fa-solid fa-right-from-bracket"></i></a></div>
                 </div>
                 <!-- open filter modal button -->
                 <?php require_once "loadFilterModal.php" ?>
@@ -46,6 +46,7 @@ if (!isset($_SESSION['logon']) or !isset($_SESSION['username']) or !isset($_SESS
                         <table class="table table-striped table-primary table-bordered w-100">
                             <thead>
                                 <tr>
+                                    <th class="text-center" scope="col">İlan ID</th>
                                     <th class="text-center" style="width:16rem" scope="col"></th>
                                     <th class="text-center" scope="col">Emlak Türü</th>
                                     <th class="text-center" scope="col">İlan Başlığı</th>
@@ -54,6 +55,7 @@ if (!isset($_SESSION['logon']) or !isset($_SESSION['username']) or !isset($_SESS
                                     <th class="text-center" scope="col">Fiyat</th>
                                     <th class="text-center" scope="col">İl/İlçe</th>
                                     <th class="text-center" scope="col">İlan Tarihi</th>
+                                    <th class="text-center" scope="col">Yönet</th>
                                 </tr>
                             </thead>
                             <tbody id="properties">
@@ -70,6 +72,8 @@ if (!isset($_SESSION['logon']) or !isset($_SESSION['username']) or !isset($_SESS
         <!-- footer section -->
         <!-- sube section end -->
         <?php require_once "loadScripts.php" ?>
+        <script src="assets/js/sweetalert.js"></script>
+
         <script>
             getItems();
             getSelectPicker();
@@ -78,6 +82,53 @@ if (!isset($_SESSION['logon']) or !isset($_SESSION['username']) or !isset($_SESS
             nextPage();
             prevPage();
             toggleSideBar();
+
+            function logOff() {
+                Swal.fire({
+                    title: 'Çıkış yapmak istediğinizden emin misiniz?',
+                    text: "",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Evet, Çıkış yap!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "action-logoff.php"
+                    }
+                })
+            }
+
+            function deleteProperty(id) {
+                Swal.fire({
+                    title: id + ' Numaralı ilanı silmek istediğinize emin misiniz?',
+                    text: "Bunu geri alamazsınız!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Evet, sil!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "action-property.php?action=delete",
+                            method: "POST",
+                            data: {
+                                propertyId: id
+                            },
+                            success: (data) => {
+                                Swal.fire(
+                                    'Deleted!',
+                                    data,
+                                    'success'
+                                )
+                                getItems();
+                            }
+                        })
+
+                    }
+                })
+            }
         </script>
     </body>
 
