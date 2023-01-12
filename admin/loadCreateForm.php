@@ -1,6 +1,5 @@
-<?php require_once("init.php") ?>
 
-<form action="create-action.php" method="POST" enctype="multipart/form-data">
+<form action="action-property.php?action=create" method="POST" enctype="multipart/form-data">
     <div class="form-group my-2">
         <label class="me-1" for="type">Emlak Türü:</label>
         <select class="selectpicker" name="type" id="type" data-style="btn-secondary">
