@@ -37,6 +37,7 @@ try {
         $getImages = $connect->read($getImagesQuery, array($row['id'])); ?>
 
         <tr>
+            <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['id'] ?></td>
             <td class="col-md-2" style="height:8rem" scope="col">
                 <div style="height:8rem" class="image-container">
                     <?php
@@ -63,8 +64,8 @@ try {
             <td class="align-middle text-center col-md-1" scope="col"><?php echo number_format_unchanged_precision($row['cost']) . " TL" ?></td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['city'] ?>/<?php echo $row['district'] ?><br> <?php echo $row['quarter'] ?></td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['date'] ?></td>
+            <td class="align-middle text-center col-md-1" scope="col"><a class="btn btn-primary px-1 mb-2" href="#">Düzenle</a><br><a onclick="deleteProperty(<?php echo $row['id'] ?>)"class="btn btn-danger px-4" href="#">Sil</a></td>
         </tr>
-
 <?php
 
     }

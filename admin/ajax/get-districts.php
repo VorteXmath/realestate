@@ -1,5 +1,5 @@
 <?php
-require_once "../../init.php";
+require_once "../init.php";
 
 $connect = new Connect();
 $query = "SELECT * FROM tbldistrict WHERE city_name=? ORDER BY district_id ASC";
