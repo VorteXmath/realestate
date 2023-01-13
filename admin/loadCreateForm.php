@@ -1,12 +1,11 @@
-
 <form action="action-property.php?action=create" method="POST" enctype="multipart/form-data">
     <div class="form-group my-2">
         <label class="me-1" for="type">Emlak Türü:</label>
         <select class="selectpicker" name="type" id="type" data-style="btn-secondary">
-            <option value="konut" selected>Konut</option>
-            <option value="isyeri">İşyeri</option>
-            <option value="arsa">Arsa</option>
-            <option value="bina">Bina</option>
+            <option value="Konut" selected>Konut</option>
+            <option value="İşyeri">İşyeri</option>
+            <option value="Arsa">Arsa</option>
+            <option value="Bina">Bina</option>
         </select>
     </div>
     <hr>
@@ -68,11 +67,11 @@
     <hr>
     <div class="form-group my-2">
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="notfurnished" name="furnished" class="custom-control-input" checked>
+            <input type="radio" id="notfurnished" name="furnished" class="custom-control-input" value="0" checked>
             <label class="custom-control-label" for="notfurnished">Eşyasız</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="isfurnished" name="furnished" class="custom-control-input">
+            <input type="radio" id="isfurnished" name="furnished" class="custom-control-input" value="1">
             <label class="custom-control-label" for="isfurnished">Eşyalı</label>
         </div>
     </div>
@@ -80,11 +79,11 @@
     <div class="form-group my-2">
         <h4 class="font-size-1">Balkon</h4>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="213" name="balcony" class="custom-control-input" checked>
+            <input type="radio" id="213" name="balcony" class="custom-control-input" value="1" checked>
             <label class="custom-control-label" for="213">Var</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="313" name="balcony" class="custom-control-input">
+            <input type="radio" id="313" name="balcony" class="custom-control-input" value="0">
             <label class="custom-control-label" for="313">Yok</label>
         </div>
     </div>
@@ -127,11 +126,11 @@
     </div>
     <hr>
     <div class=" form-group row my-2">
-            <label for="images">Resimler</label>
-            <input type="file" class="form-control-file" id="images" name="images[]" multiple>
-        </div>
-        <hr>
-        <button type="submit" name="submit" class="btn btn-primary mb-2">İlanı Yükle</button>
+        <label for="images">Resimler</label>
+        <input type="file" class="form-control-file" id="images" name="images[]" multiple>
+    </div>
+    <hr>
+    <button type="submit" name="submit" class="btn btn-primary mb-2">İlanı Yükle</button>
 
 
 </form>

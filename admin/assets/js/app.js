@@ -141,7 +141,7 @@ function prevPage() {
 }
 
 
-//! sliding images
+// sliding images
 
 
 var slideIndex = 1;
@@ -186,12 +186,12 @@ function displaySlide(n) {
     }
 }
 
-function getSelectPicker() {
+function getSelectPicker(city = "", district = "") {
     let createFilters = {
-        city: "",
-        district: ""
+        city: city,
+        district: district
     }
-
+    
     let citySelect = document.querySelector("#select-city");
 
     citySelect.addEventListener("change", (e) => {
@@ -222,6 +222,44 @@ function getSelectPicker() {
                 $("#select-quarter").html(data).selectpicker('refresh');
             }
         })
+    })
+
+    $("#select-city").selectpicker()
+    $("#select-district").selectpicker()
+    $("#select-quarter").selectpicker()
+}
+//update page select picker
+
+function updateGetSelectPicker(city = "", district = "") {
+    let createFilters = {
+        city: city,
+        district: district
+    }
+
+
+    createFilters.city = e.target.value
+    $.ajax({
+        url: "ajax/get-districts.php",
+        method: 'POST',
+        data: {
+            city: createFilters.city
+        },
+        success: (data) => {
+            $("#select-district").html(data).selectpicker('refresh');
+        }
+    })
+
+
+    createFilters.district = e.target.value
+    $.ajax({
+        url: "ajax/get-quarters.php",
+        method: 'POST',
+        data: {
+            district: createFilters.district
+        },
+        success: (data) => {
+            $("#select-quarter").html(data).selectpicker('refresh');
+        }
     })
 
     $("#select-city").selectpicker()
@@ -260,6 +298,6 @@ function toggleSideBar() {
         toggleSideBar.classList.toggle("wide")
     })
 
-    
+
 
 }

@@ -118,9 +118,8 @@ if (!isset($_SESSION['logon']) or !isset($_SESSION['username']) or !isset($_SESS
                             },
                             success: (data) => {
                                 Swal.fire(
-                                    'Deleted!',
-                                    data,
-                                    'success'
+                                    'Başarılı!',
+                                    'İlan Silindi'
                                 )
                                 getItems();
                             }
