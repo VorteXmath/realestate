@@ -21,11 +21,10 @@ if (!isset($_GET['action'])) {
                 $floor = isset($_REQUEST['floor']) ? $_REQUEST['floor'] : null;
                 $floors = isset($_REQUEST['floors']) ? $_REQUEST['floors'] : null;
                 $bathroom = isset($_REQUEST['bathroom']) ? $_REQUEST['bathroom'] : null;
-                echo $agentName = isset($_SESSION['full_name']) ? $_SESSION['full_name'] : null;
-                echo $agentPhone = isset($_SESSION['phone']) ? $_SESSION['phone'] : null;
-
-
-
+                $furnished = isset($_REQUEST['furnished']) ? $_REQUEST['furnished'] : null;
+                $balcony = isset($_REQUEST['balcony']) ? $_REQUEST['balcony'] : null;
+                $agentName = isset($_SESSION['full_name']) ? $_SESSION['full_name'] : null;
+                $agentPhone = isset($_SESSION['phone']) ? $_SESSION['phone'] : null;
 
                 try {
 
@@ -39,8 +38,8 @@ if (!isset($_GET['action'])) {
                     // $connect->$db->commit();
                     $connect = new Connect();
 
-                    $query = "INSERT INTO tblproperty(type, prop_case, title, city, district, quarter, comment, room, area, cost, age, floor, floors, bathrooms,agent_name,agent_phone) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                    $connect->create($query, array($type, $prop_case, $title, $city, $district, $quarter, $comment, $room, $area, $cost, $age, $floor, $floors, $bathroom, $agentName, $agentPhone));
+                    $query = "INSERT INTO tblproperty(type, prop_case, title, city, district, quarter, comment, room, area, cost, age, floor, floors, bathrooms,agent_name,agent_phone,is_furnished,balcony) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    $connect->create($query, array($type, $prop_case, $title, $city, $district, $quarter, $comment, $room, $area, $cost, $age, $floor, $floors, $bathroom, $agentName, $agentPhone, $furnished, $balcony));
 
                     //get last insert id to sync prop images 
                     $lastInsertId = $connect->lastInsertId;
@@ -60,7 +59,7 @@ if (!isset($_GET['action'])) {
                             }
                         }
                     }
-                    Routing::comeBack();
+                    Routing::go("index.php");
                 } catch (PDOException $ex) {
                     echo $ex->getMessage();
                 }
@@ -76,7 +75,35 @@ if (!isset($_GET['action'])) {
                 $deleteCommand = "DELETE FROM tblproperty WHERE id = ?";
                 $connect->delete($deleteCommand, array($propertyId));
             }
-        default:
-            echo "default";
+        case "update":
+            if (isset($_POST['propertyId'])) {
+
+                $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : null;
+                $title = isset($_REQUEST['title']) ? $_REQUEST['title'] : null;
+                $comment = isset($_REQUEST['comment']) ? $_REQUEST['comment'] : null;
+                $city = isset($_REQUEST['city']) ? $_REQUEST['city'] : null;
+                $district = isset($_REQUEST['district']) ? $_REQUEST['district'] : null;
+                $quarter = isset($_REQUEST['quarter']) ? $_REQUEST['quarter'] : null;
+                $prop_case = isset($_REQUEST['prop_case']) ? $_REQUEST['prop_case'] : null;
+                $room = isset($_REQUEST['room']) ? $_REQUEST['room'] : null;
+                $area = isset($_REQUEST['area']) ? $_REQUEST['area'] : null;
+                $cost = isset($_REQUEST['cost']) ? $_REQUEST['cost'] : null;
+                $age = isset($_REQUEST['age']) ? $_REQUEST['age'] : null;
+                $floor = isset($_REQUEST['floor']) ? $_REQUEST['floor'] : null;
+                $floors = isset($_REQUEST['floors']) ? $_REQUEST['floors'] : null;
+                $bathroom = isset($_REQUEST['bathroom']) ? $_REQUEST['bathroom'] : null;
+                $furnished = isset($_REQUEST['furnished']) ? $_REQUEST['furnished'] : null;
+                $balcony = isset($_REQUEST['balcony']) ? $_REQUEST['balcony'] : null;
+                $agentName = isset($_SESSION['full_name']) ? $_SESSION['full_name'] : null;
+                $agentPhone = isset($_SESSION['phone']) ? $_SESSION['phone'] : null;
+
+
+                $propertyId = $_POST['propertyId'];
+                $cmdUpdate = "UPDATE tblproperty SET type=?, prop_case=?, title=?, city=?, district=?, quarter=?, comment=?, room=?, area=?, cost=?, age=?, floor=?, floors=?, bathrooms=?,agent_name=?,agent_phone=?,is_furnished=?,balcony=? WHERE id=? ";
+                $connect->update($cmdUpdate, array($type, $prop_case, $title, $city, $district, $quarter, $comment, $room, $area, $cost, $age, $floor, $floors, $bathroom, $agentName, $agentPhone, $furnished, $balcony, $propertyId));
+
+
+                Routing::go("index.php");
+            }
     }
 }
