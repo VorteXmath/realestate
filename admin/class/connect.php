@@ -58,6 +58,22 @@ class Connect
             die($ex->getMessage());
         }
     }
+
+    public function update($query, $params = NULL)
+    {
+        try {
+            if (is_null($params)) {
+                $this->stmt = $this->db->query($query);
+            } else {
+                $this->stmt = $this->db->prepare($query);
+                $this->stmt->execute($params);
+            }
+            return $this->stmt;
+        } catch (PDOException $ex) {
+            die($ex->getMessage());
+        }
+    }
+
     public function delete($query, $params = NULL)
     {
         try {
