@@ -11,23 +11,21 @@
             <li class="nav-item dropdown">
                 <a class="nav-link nav-link-item dropdown-toggle px-4" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Satılık</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Daire</a></li>
-                    <li><a class="dropdown-item" href="#">Bina</a></li>
-                    <li><a class="dropdown-item" href="#">Arsa</a></li>
-                    <li><a class="dropdown-item" href="#">İşyeri</a></li>
+                    <li><a class="dropdown-item" href="ilanlar.php?case=Satılık&type=Konut">Konut</a></li>
+                    <li><a class="dropdown-item" href="ilanlar.php?case=Satılık&type=Arsa">Arsa</a></li>
+                    <li><a class="dropdown-item" href="ilanlar.php?case=Satılık&type=İşyeri">İşyeri</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link nav-link-item dropdown-toggle px-4" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Satılık</a>
+                <a class="nav-link nav-link-item dropdown-toggle px-4" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Kiralık</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Daire</a></li>
-                    <li><a class="dropdown-item" href="#">Bina</a></li>
-                    <li><a class="dropdown-item" href="#">Arsa</a></li>
-                    <li><a class="dropdown-item" href="#">İşyeri</a></li>
+                    <li><a class="dropdown-item" href="ilanlar.php?case=Kiralık&type=Konut">Konut</a></li>
+                    <li><a class="dropdown-item" href="ilanlar.php?case=Kiralık&type=Arsa">Arsa</a></li>
+                    <li><a class="dropdown-item" href="ilanlar.php?case=Kiralık&type=İşyeri">İşyeri</a></li>
                 </ul>
             </li>
             <li><a class="nav-link-item px-4" href="index.php">Proje</a></li>
-            <li><a class="nav-link-item px-4" href="hakkimizda.php">Hakkımızda</a></li>
+            <li><a class="nav-link-item px-4" href="#aboutus">Hakkımızda</a></li>
             <li><a class="tel-link nav-link-item px-4" href="tel:+01 (234) 567 8912"><i class="tel-icon fa-solid fa-phone-volume mr-1"></i> <span><i>+01 (234) 567 8912</i></span></a></li>
         </ul>
         <div class="sidebar-wrapper">

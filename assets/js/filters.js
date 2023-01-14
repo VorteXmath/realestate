@@ -15,9 +15,11 @@ let filters = {
 //handle url params
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-filters.type = urlParams.get('emlaktipi');
+
+filters.type = urlParams.get('type');
 filters.city = urlParams.get('city');
 filters.district = urlParams.get('district');
+filters.prop_case = urlParams.get('case');
 
 
 getProperties();

@@ -6,10 +6,10 @@
 
     <form style="-webkit-filter: drop-shadow(10px 10px 10px #222);filter: drop-shadow(10px 10px 10px #222);z-index:5;position:sticky;top:100px;" class="d-flex flex-column" action="ilanlar.php" method="GET">
         <div class="advanced-radio my-1 w-50" style-type="grid">
-            <input label="Tümü" type="radio" name="type" value="all" checked>
-            <input label="Konut" type="radio" name="type" value="house">
-            <input label="İşyeri" type="radio" name="type" value="business">
-            <input label="Arsa" type="radio" name="type" value="land">
+            <input label="Tümü" type="radio" name="type" value="" checked>
+            <input label="Konut" type="radio" name="type" value="Konut">
+            <input label="İşyeri" type="radio" name="type" value="İşyeri">
+            <input label="Arsa" type="radio" name="type" value="Arsa">
         </div>
         <div class="form-group flex-column flex-sm-row d-flex">
             <select id="select-city" class="selectpicker dropdown-location" name="city" data-live-search="true" title="İl" data-style="btn-light">

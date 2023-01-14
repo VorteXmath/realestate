@@ -21,7 +21,7 @@ require_once "init.php";
 
     </section>
     <!-- section about us -->
-    <section class="bg-white mt-5">
+    <section id="aboutus" class="bg-white mt-5">
         <?php require_once "loadAboutUs.php" ?>
     </section>
 
