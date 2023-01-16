@@ -1,6 +1,7 @@
 let filters = {
     type: "",
-    room: "",
+    room: Array(),
+    roomJSON: "",
     city: "",
     district: "",
     quarter: "",
@@ -30,7 +31,7 @@ function getProperties() {
         data: {
             prop_case: filters.prop_case,
             type: filters.type,
-            room: filters.room,
+            room: filters.roomJSON,
             city: filters.city,
             district: filters.district,
             quarter: filters.quarter,
@@ -99,6 +100,27 @@ $("input#areaMax").keyup(e => {
     filters.areaMax = e.target.value;
     getProperties();
 });
+
+let rooms = document.querySelectorAll(".checkbox-room");
+
+rooms.forEach(e => {
+    e.addEventListener("change", () => {
+        if (e.checked) {
+            filters.room.push(e.value);
+        } else {
+            filters.room = filters.room.filter(r => r !== e.value);
+
+        }
+
+        filters.roomJSON = JSON.stringify(filters.room);
+        // console.log(filters.roomJSON)
+        // filters.room.forEach(w => {
+        //     console.log(w);
+        // })
+        getProperties();
+
+    })
+})
 
 
 

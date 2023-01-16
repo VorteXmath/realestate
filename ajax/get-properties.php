@@ -3,13 +3,21 @@ setlocale(LC_ALL, 'tr_TR.UTF-8');
 
 require_once "../init.php";
 
+
+$jsonroom = json_decode($_POST['room']);
+
+
 $w     = array();
 $where = '';
 $offset;
 
+if (!empty($jsonroom)) {
+    foreach ($jsonroom as $value) {
+        $w[] = "room='" . $value . "'";
+    }
+}
 if (!empty($_POST['prop_case']))     $w[] = "prop_case='" . $_POST['prop_case'] . "'";
 if (!empty($_POST['type']))     $w[] = "type='" . $_POST['type'] . "'";
-if (!empty($_POST['room']))     $w[] = "room='" . $_POST['room'] . "'";
 if (!empty($_POST['city']))     $w[] = "city='" . $_POST['city'] . "'";
 if (!empty($_POST['district']))     $w[] = "district='" . $_POST['district'] . "'";
 if (!empty($_POST['quarter']))     $w[] = "quarter='" . $_POST['quarter'] . "'";
@@ -24,6 +32,9 @@ if (!empty($_POST['offset']))  $offset = ($_POST['offset'] - 1) * 6;
 if (count($w)) $where = "WHERE " . implode(' AND ', $w);
 $countQuery = "SELECT COUNT(*) FROM tblproperty $where";
 $getPropertiesQuery = "SELECT * FROM tblproperty $where ORDER BY ID DESC LIMIT 12 OFFSET {$offset}";
+
+
+
 
 $getcount = $connect->read($countQuery);
 $getcount = $getcount->fetch(pdo::FETCH_ASSOC);

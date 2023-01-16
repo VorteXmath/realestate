@@ -83,33 +83,33 @@
                 <hr class="m-0">
 
                 <div class="d-flex flex-column">
-                    <div class="row d-flex align-items-center pe-2"><input type="checkbox" id="1+0" value="1+0"></input><label for="1+0">1+0</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="1+1" value="1+1"></input><label for="1+1">1+1</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="2+0" value="2+0"></input><label for="2+0">2+0</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="2+1" value="2+1"></input><label for="2+1">2+1</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="2+2" value="2+2"></input><label for="2+2">2+2</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="3+0" value="3+0"></input><label for="3+0">3+0</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="3+1" value="3+1"></input><label for="3+1">3+1</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="3+2" value="3+2"></input><label for="3+2">3+2</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="3+3" value="3+3"></input><label for="3+3">3+3</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="4+0" value="4+0"></input><label for="4+0">4+0</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="4+1" value="4+1"></input><label for="4+1">4+1</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="4+2" value="4+2"></input><label for="4+2">4+2</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="4+3" value="4+3"></input><label for="4+3">4+3</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="4+4" value="4+4"></input><label for="4+4">4+4</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="5+0" value="5+0"></input><label for="5+0">5+0</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="5+1" value="5+1"></input><label for="5+1">5+1</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="5+2" value="5+2"></input><label for="5+2">5+2</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="5+3" value="5+3"></input><label for="5+3">5+3</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="5+4" value="5+4"></input><label for="5+4">5+4</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="5+5" value="5+5"></input><label for="5+5">5+5</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="6+0" value="6+0"></input><label for="6+0">6+0</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="6+1" value="6+1"></input><label for="6+1">6+1</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="6+2" value="6+2"></input><label for="6+2">6+2</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="6+3" value="6+3"></input><label for="6+3">6+3</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="6+4" value="6+4"></input><label for="6+4">6+4</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="6+5" value="6+5"></input><label for="6+5">6+5</label></div>
-                    <div class="row d-flex align-items-center"><input type="checkbox" id="6+6" value="6+6"></input><label for="6+6">6+6</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="1+0" value="1+0"></input><label for="1+0">1+0</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="1+1" value="1+1"></input><label for="1+1">1+1</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="2+0" value="2+0"></input><label for="2+0">2+0</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="2+1" value="2+1"></input><label for="2+1">2+1</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="2+2" value="2+2"></input><label for="2+2">2+2</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="3+0" value="3+0"></input><label for="3+0">3+0</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="3+1" value="3+1"></input><label for="3+1">3+1</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="3+2" value="3+2"></input><label for="3+2">3+2</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="3+3" value="3+3"></input><label for="3+3">3+3</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="4+0" value="4+0"></input><label for="4+0">4+0</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="4+1" value="4+1"></input><label for="4+1">4+1</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="4+2" value="4+2"></input><label for="4+2">4+2</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="4+3" value="4+3"></input><label for="4+3">4+3</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="4+4" value="4+4"></input><label for="4+4">4+4</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="5+0" value="5+0"></input><label for="5+0">5+0</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="5+1" value="5+1"></input><label for="5+1">5+1</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="5+2" value="5+2"></input><label for="5+2">5+2</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="5+3" value="5+3"></input><label for="5+3">5+3</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="5+4" value="5+4"></input><label for="5+4">5+4</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="5+5" value="5+5"></input><label for="5+5">5+5</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="6+0" value="6+0"></input><label for="6+0">6+0</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="6+1" value="6+1"></input><label for="6+1">6+1</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="6+2" value="6+2"></input><label for="6+2">6+2</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="6+3" value="6+3"></input><label for="6+3">6+3</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="6+4" value="6+4"></input><label for="6+4">6+4</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="6+5" value="6+5"></input><label for="6+5">6+5</label></div>
+                    <div class="row d-flex align-items-center"><input class="checkbox-room" type="checkbox" id="6+6" value="6+6"></input><label for="6+6">6+6</label></div>
                 </div>
             </div>
         </div>
