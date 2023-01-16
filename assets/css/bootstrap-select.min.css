@@ -70,10 +70,14 @@ select.selectpicker {
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder,
 .bootstrap-select>.dropdown-toggle.bs-placeholder:active,
-.bootstrap-select>.dropdown-toggle.bs-placeholder:focus,
-.bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
-    color: #999
+.bootstrap-select>.dropdown-toggle.bs-placeholder:focus {
+    color: #333;
 }
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+    color: #eee;
+}
+
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder.btn-danger,
 .bootstrap-select>.dropdown-toggle.bs-placeholder.btn-danger:active,
