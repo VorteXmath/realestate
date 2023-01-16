@@ -244,7 +244,7 @@ img.ddd {
 
 .btn-accordion:hover {
     cursor: pointer;
-    border: 1px solid #B2B2B2;
+    border: 1px solid #82C3EC;
 }
 
 .btn-accordion h2 {
@@ -419,6 +419,8 @@ button {
     width: 250px;
     border-radius: 0;
     padding: 0;
+    position: sticky;
+    top: 70px;
 }
 
 @media(max-width:1000px) {
@@ -550,6 +552,11 @@ button {
     height: 90%;
 }
 
+.filter-card input[type="checkbox"] {
+    width: 30px;
+    margin-left: 25px
+}
+
 .filter-card span {
     background: #007BFF;
     height: 100%;
@@ -560,7 +567,13 @@ button {
 }
 
 .filter-card label {
-    margin-top: 5px;
+    margin-bottom: 0;
+    font-size:14px;
+    font-weight: 500;
+}
+
+.filter-card label:hover {
+    cursor:pointer;
 }
 
 
@@ -586,11 +599,21 @@ button {
     transition-duration: .5s;
     height: 0px;
     overflow: hidden;
-    background: #009EFF;
+    background: #BAD7E9;
 }
 
 .active .filter-card-content {
     height: 100px;
+}
+
+.active .filter-card-content.room-content {
+    max-height: 100px;
+    padding-bottom: 5px;
+    overflow-y: scroll;
+}
+
+#select-room {
+    margin-top: 5px
 }
 
 
@@ -622,11 +645,6 @@ button {
     }
 }
 
-.xrow {
-    background: #b2e1ff;
-    color: rgb(0, 0, 0);
-}
-
 .container-wrapper {
     width: 100%;
     z-index: 1337;
@@ -636,4 +654,36 @@ button {
     position: fixed;
     top: 0;
     background: #004274;
+}
+
+
+.filters-accordion {
+    background: #BAD7E9;
+    color: #000;
+}
+
+.filters-accordion:hover {
+    background: #82C3EC !important;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #3f72af #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #a9befe;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #3f72af;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
 }

@@ -5,7 +5,7 @@
     </div>
 
     <form style="-webkit-filter: drop-shadow(10px 10px 10px #222);filter: drop-shadow(10px 10px 10px #222);z-index:5;position:sticky;top:100px;" class="d-flex flex-column" action="ilanlar.php" method="GET">
-        <div class="advanced-radio my-1 w-50" style-type="grid">
+        <div class="advanced-radio my-1 w-50" style-type="grid" style-color="light">
             <input label="Tümü" type="radio" name="type" value="" checked>
             <input label="Konut" type="radio" name="type" value="Konut">
             <input label="İşyeri" type="radio" name="type" value="İşyeri">
