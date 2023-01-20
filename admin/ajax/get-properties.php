@@ -58,7 +58,7 @@ try {
                 </div>
             </td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['type'] ?></td>
-            <td class="align-middle text-center col-md-2" scope="col"><?php echo $row['title'] ?></td>
+            <td class="align-middle text-center col-md-2 prop-title" scope="col"><?php echo $row['title'] ?></td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['area'] ?></td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['room'] ?></td>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo number_format_unchanged_precision($row['cost']) . " TL" ?></td>

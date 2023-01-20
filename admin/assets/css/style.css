@@ -900,3 +900,10 @@
  }
 
  /* admin login page end*/
+
+ td.prop-title {
+     overflow: hidden;
+     max-width: 420px;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+ }
