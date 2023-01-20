@@ -1,11 +1,18 @@
 /* disable click event */
+
+
+
 .click-disabled {
     pointer-events: none;
     cursor: default;
 }
 
+.d-hidden {
+    display: hidden;
+}
 
-.m-0{
+
+.m-0 {
     margin: 0;
 }
 
