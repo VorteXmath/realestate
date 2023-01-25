@@ -1,5 +1,4 @@
 <script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap-select.min.js"></script>
 <!-- bootstrap 4.6.2 -->
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/bootstrap-select.js"></script>
