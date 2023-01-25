@@ -29,7 +29,7 @@ require_once "class/timeAgo.php";
                 <span class="span-cost"><?php echo number_format_unchanged_precision($row['cost'], ',', '.') . " TL" ?></span>
             </a>
             <div class="card-body">
-                <h5>
+                <h5 class="props-prop-title">
                     <?php
                     echo $row['title'] ?>
                 </h5>
