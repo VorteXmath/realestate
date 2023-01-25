@@ -25,7 +25,8 @@ if (!empty($_POST['costMin']))     $w[] = "cost>='" . $_POST['costMin'] . "'";
 if (!empty($_POST['costMax']))     $w[] = "cost<='" . $_POST['costMax'] . "'";
 if (!empty($_POST['areaMin']))     $w[] = "area>='" . $_POST['areaMin'] . "'";
 if (!empty($_POST['areaMax']))     $w[] = "area<='" . $_POST['areaMax'] . "'";
-if (!empty($_POST['offset']))  $offset = ($_POST['offset'] - 1) * 6;
+if (!empty($_POST['offset']))  $offset = ($_POST['offset'] - 1) * 12;
+if (!empty($_POST['offset']))  $raw_offset = $_POST['offset'];
 
 
 
@@ -62,7 +63,7 @@ try {
             </a>
             <div class="property-card-body d-flex flex-column p-2">
                 <div style="font-size:13px"><?php echo $row['city'] . " / " . $row['district']  ?></div>
-                <h3 class="my-2" style="font-size:16px"><?php echo $row['title'] ?> </h3>
+                <h3 class="my-2 props-prop-title"><?php echo $row['title'] ?> </h3>
                 <div class="my-1">
                     <span><?php echo $row['area'] . "m²" ?></span>
                     <span><?php echo $row['room'] ?></span>
@@ -75,10 +76,31 @@ try {
             </div>
             <span class="prop-type"><?php echo $row['prop_case'] . " " . $row['type'] ?></span>
         </div>
+    <?php
 
+    }
+    if ($pageCount > 0) {
+    ?>
+        <div class="paginationBar mt-3">
+            <?php
+            if ($raw_offset > 1) {
+            ?>
+                <button class="btn btn-secondary btn-pagination mx-1">
+                    < </button>
+                        <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(<?php echo $raw_offset - 1 ?>)"><?php echo $raw_offset - 1 ?></button>
+                    <?php
+                }
+                    ?>
+                    <button class="btn btn-primary btn-pagination mx-1"><?php echo $raw_offset ?></button>
 
+                    <?php
+                    if ($pageCount > $raw_offset) {
+                    ?>
+                        <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(<?php echo $raw_offset + 1 ?>)"><?php echo $raw_offset + 1 ?></button>
+                        <button class="btn btn-secondary btn-pagination mx-1">></button>
+                    <?php } ?>
+        </div>
 <?php
-
     }
 } catch (Exception $ex) {
     echo $ex->getMessage();

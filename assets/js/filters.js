@@ -51,53 +51,73 @@ function getProperties() {
 
 
 $("input[name='prop_case']").change(e => {
-    filters.prop_case = e.target.value;
+    if (e.target.value == "all") {
+        filters.prop_case = "";
+    }
+    else {
+        filters.prop_case = e.target.value;
+    }
+    filters.offset = 1;
     getProperties();
 });
 
 $("input[name='type']").change(e => {
-    filters.type = e.target.value;
+    if (e.target.value == "all") {
+        filters.type = "";
+    }
+    else {
+        filters.type = e.target.value;
+    }
+    filters.offset = 1;
     getProperties();
 });
 
 $("select[name='city']").change(e => {
     filters.city = e.target.value;
+    filters.offset = 1;
     getProperties();
 });
 
 $("select[name='district']").change(e => {
     filters.district = e.target.value;
+    filters.offset = 1;
     getProperties();
 });
 
 $("select[name='quarter']").change(e => {
     filters.quarter = e.target.value;
+    filters.offset = 1;
     getProperties();
 });
 
 $("select[name='quarter']").change(e => {
     filters.quarter = e.target.value;
+    filters.offset = 1;
     getProperties();
 });
 
 $("input#costMin").keyup(e => {
     filters.costMin = e.target.value;
+    filters.offset = 1;
     getProperties();
 });
 
 $("input#costMax").keyup(e => {
     filters.costMax = e.target.value;
+    filters.offset = 1;
     getProperties();
 });
 
 
 $("input#areaMin").keyup(e => {
     filters.areaMin = e.target.value;
+    filters.offset = 1;
     getProperties();
 });
 
 $("input#areaMax").keyup(e => {
     filters.areaMax = e.target.value;
+    filters.offset = 1;
     getProperties();
 });
 
@@ -113,6 +133,7 @@ rooms.forEach(e => {
         }
 
         filters.roomJSON = JSON.stringify(filters.room);
+        filters.offset = 1;
         // console.log(filters.roomJSON)
         // filters.room.forEach(w => {
         //     console.log(w);
@@ -121,6 +142,15 @@ rooms.forEach(e => {
 
     })
 })
+
+
+
+
+function pagination(e) {
+    filters.offset = e;
+    getProperties();
+}
+
 
 
 
