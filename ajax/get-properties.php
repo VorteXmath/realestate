@@ -4,18 +4,14 @@ setlocale(LC_ALL, 'tr_TR.UTF-8');
 require_once "../init.php";
 
 
-$jsonroom = json_decode($_POST['room']);
+$jsonroom = json_decode($_POST['room']) ?? array();
 
 
 $w     = array();
 $where = '';
+$whereOr = '';
 $offset;
 
-if (!empty($jsonroom)) {
-    foreach ($jsonroom as $value) {
-        $w[] = "room='" . $value . "'";
-    }
-}
 if (!empty($_POST['prop_case']))     $w[] = "prop_case='" . $_POST['prop_case'] . "'";
 if (!empty($_POST['type']))     $w[] = "type='" . $_POST['type'] . "'";
 if (!empty($_POST['city']))     $w[] = "city='" . $_POST['city'] . "'";
@@ -30,9 +26,18 @@ if (!empty($_POST['offset']))  $raw_offset = $_POST['offset'];
 
 
 
-if (count($w)) $where = "WHERE " . implode(' AND ', $w);
+if (count($w)) {
+    $where = "WHERE " . implode(' AND ', $w);
+    if (count($jsonroom)) $whereOr = " AND " . implode(' OR ', $jsonroom);
+}else{
+    if (count($jsonroom)) $whereOr = " WHERE " . implode(' OR ', $jsonroom);
+}
+
+
+
+
 $countQuery = "SELECT COUNT(*) FROM tblproperty $where";
-$getPropertiesQuery = "SELECT * FROM tblproperty $where ORDER BY ID DESC LIMIT 12 OFFSET {$offset}";
+$getPropertiesQuery = "SELECT * FROM tblproperty $where $whereOr ORDER BY ID DESC LIMIT 12 OFFSET {$offset}";
 
 
 
@@ -45,6 +50,7 @@ $pageCount = ceil(intval($count) / 12);
 $getImagesQuery = "SELECT * FROM tblimages WHERE property_id=?";
 try {
     echo "<div class='d-none' id='pageCount'>$pageCount</div>";
+    // echo $getPropertiesQuery;
     $getProperties = $connect->read($getPropertiesQuery);
     while ($row = $getProperties->fetch(PDO::FETCH_ASSOC)) {
         $getImages = $connect->read($getImagesQuery, array($row['id'])); ?>

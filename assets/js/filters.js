@@ -132,12 +132,8 @@ rooms.forEach(e => {
 
         }
 
-        filters.roomJSON = JSON.stringify(filters.room);
+        filters.roomJSON = JSON.stringify(filters.room.map(r => "room='" + r + "'"));
         filters.offset = 1;
-        // console.log(filters.roomJSON)
-        // filters.room.forEach(w => {
-        //     console.log(w);
-        // })
         getProperties();
 
     })
