@@ -130,7 +130,7 @@ function filterToggle() {
         filterCard.classList.toggle("active");
     }
 }
- 
+
 // toggle filter
 $(".btn-toggle-filter").on("click", () => {
     $(".wrapper-filter").addClass("filter-on");
@@ -151,4 +151,10 @@ $(".wrapper-sort").on("click", (e) => {
     if (e.target.classList.contains("wrapper-sort")) {
         $(".wrapper-sort").removeClass('sort-on');
     }
+})
+
+// loading page function
+$(window).on("load", function () {
+    $(".loader").fadeOut(1000)
+    $(".content").fadeIn(1000)
 })

@@ -9,26 +9,36 @@ require_once "init.php";
 </head>
 
 <body>
-    <header style="border-bottom: 1px solid rgba(238, 238, 238, 0.24);" class="header-wrap">
-        <?php require_once "loadNavbar.php";
-        require_once "loadHeaderContent.php" ?>
-    </header>
-    <!-- content area -->
+    <div class="loader">
+        <div class="loading">
+            <div class="ball one"></div>
+            <div class="ball two"></div>
+            <div class="ball three"></div>
+            <div class="ball four"></div>
+        </div>
+    </div>
+    <div class="content">
+        <header style="border-bottom: 1px solid rgba(238, 238, 238, 0.24);" class="header-wrap">
+            <?php require_once "loadNavbar.php";
+            require_once "loadHeaderContent.php" ?>
+        </header>
+        <!-- content area -->
 
-    <!-- section last properties -->
-    <section class="last-properties container-xl position-relative">
-        <?php require_once "loadLastProperties.php" ?>
+        <!-- section last properties -->
+        <section class="last-properties container-xl position-relative">
+            <?php require_once "loadLastProperties.php" ?>
 
-    </section>
-    <!-- section about us -->
-    <section id="aboutus" class="bg-white mt-5">
-        <?php require_once "loadAboutUs.php" ?>
-    </section>
+        </section>
+        <!-- section about us -->
+        <section id="aboutus" class="bg-white mt-5">
+            <?php require_once "loadAboutUs.php" ?>
+        </section>
 
-    <!-- content area end -->
-    <footer class="col mt-5 p-0">
-        <?php require_once "loadFooter.php" ?>
-    </footer>
+        <!-- content area end -->
+        <footer class="col mt-5 p-0">
+            <?php require_once "loadFooter.php" ?>
+        </footer>
+    </div>
     <?php require_once "loadScripts.php" ?>
     <script>
         dynamicHeader();
