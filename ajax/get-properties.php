@@ -29,7 +29,7 @@ if (!empty($_POST['offset']))  $raw_offset = $_POST['offset'];
 if (count($w)) {
     $where = "WHERE " . implode(' AND ', $w);
     if (count($jsonroom)) $whereOr = " AND " . implode(' OR ', $jsonroom);
-}else{
+} else {
     if (count($jsonroom)) $whereOr = " WHERE " . implode(' OR ', $jsonroom);
 }
 
@@ -86,25 +86,39 @@ try {
 
     }
     if ($pageCount > 0) {
+        echo "toplam " . $pageCount . " sayfa içerisinde " . $raw_offset . ". sayfayı görmektesiniz";
     ?>
         <div class="paginationBar mt-3">
             <?php
+            if ($raw_offset > 2) {
+            ?>
+                <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(1)">
+                    <i class="fa-solid fa-angles-left"></i>
+                </button>
+            <?php
+            }
             if ($raw_offset > 1) {
             ?>
-                <button class="btn btn-secondary btn-pagination mx-1">
-                    < </button>
-                        <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(<?php echo $raw_offset - 1 ?>)"><?php echo $raw_offset - 1 ?></button>
-                    <?php
-                }
-                    ?>
-                    <button class="btn btn-primary btn-pagination mx-1"><?php echo $raw_offset ?></button>
+                <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(<?php echo $raw_offset - 1 ?>)">
+                    <i class="fa-solid fa-angle-left"></i>
+                </button>
+                <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(<?php echo $raw_offset - 1 ?>)"><?php echo $raw_offset - 1 ?></button>
+            <?php
+            }
+            ?>
+            <button class="btn btn-primary btn-pagination mx-1"><?php echo $raw_offset ?></button>
 
-                    <?php
-                    if ($pageCount > $raw_offset) {
-                    ?>
-                        <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(<?php echo $raw_offset + 1 ?>)"><?php echo $raw_offset + 1 ?></button>
-                        <button class="btn btn-secondary btn-pagination mx-1">></button>
-                    <?php } ?>
+            <?php
+            if ($pageCount > $raw_offset) {
+            ?>
+                <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(<?php echo $raw_offset + 1 ?>)"><?php echo $raw_offset + 1 ?></button>
+                <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(<?php echo $raw_offset + 1 ?>)"><i class="fa-solid fa-angle-right"></i></button>
+            <?php }
+            if (($pageCount - $raw_offset) > 1) {
+            ?>
+                <button class="btn btn-secondary btn-pagination mx-1" onclick="pagination(<?php echo $pageCount ?>)"><i class="fa-solid fa-angles-right"></i></button>
+            <?php }
+            ?>
         </div>
 <?php
     }
@@ -135,4 +149,13 @@ try {
             }
         }
     });
+
+    $(document).ready(function() {
+        $('.btn-pagination').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+            return false;
+        });
+    })
 </script>
