@@ -51,6 +51,7 @@ $getImagesQuery = "SELECT * FROM tblimages WHERE property_id=?";
 try {
     echo "<div class='d-none' id='pageCount'>$pageCount</div>";
     // echo $getPropertiesQuery;
+    echo "<div class='nav-properties'>Aramanızla eşleşen " . $count . " ilan bulundu.</div>";
     $getProperties = $connect->read($getPropertiesQuery);
     while ($row = $getProperties->fetch(PDO::FETCH_ASSOC)) {
         $getImages = $connect->read($getImagesQuery, array($row['id'])); ?>
