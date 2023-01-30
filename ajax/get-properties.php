@@ -23,8 +23,25 @@ if (!empty($_POST['areaMin']))     $w[] = "area>='" . $_POST['areaMin'] . "'";
 if (!empty($_POST['areaMax']))     $w[] = "area<='" . $_POST['areaMax'] . "'";
 if (!empty($_POST['offset']))  $offset = ($_POST['offset'] - 1) * 12;
 if (!empty($_POST['offset']))  $raw_offset = $_POST['offset'];
+if (!empty($_POST['order']))    $order = $_POST['order'];
 
-
+$orderText;
+switch ($order) {
+    case "cost ASC":
+        $orderText = "Fiyata göre (Önce en düşük)";
+        break;
+    case "cost DESC":
+        $orderText = "Fiyata göre (Önce en yüksek)";
+        break;
+    case "date ASC":
+        $orderText = "Tarihe göre (Önce en eski)";
+        break;
+    case "date DESC":
+        $orderText = "Tarihe göre (Önce en yeni)";
+        break;
+    default:
+        $orderText = "Gelişmiş sıralamaa";
+}
 
 if (count($w)) {
     $where = "WHERE " . implode(' AND ', $w);
@@ -37,7 +54,7 @@ if (count($w)) {
 
 
 $countQuery = "SELECT COUNT(*) FROM tblproperty $where";
-$getPropertiesQuery = "SELECT * FROM tblproperty $where $whereOr ORDER BY ID DESC LIMIT 12 OFFSET {$offset}";
+$getPropertiesQuery = "SELECT * FROM tblproperty $where $whereOr ORDER BY $order LIMIT 12 OFFSET {$offset}";
 
 
 
@@ -51,7 +68,28 @@ $getImagesQuery = "SELECT * FROM tblimages WHERE property_id=?";
 try {
     echo "<div class='d-none' id='pageCount'>$pageCount</div>";
     // echo $getPropertiesQuery;
-    echo "<div class='nav-properties'>Aramanızla eşleşen " . $count . " ilan bulundu.</div>";
+    if ($count) {
+
+
+?>
+        <div class='nav-properties'>
+            <div>Aramanızla eşleşen <b><?php echo $count ?></b> ilan bulundu.</div>
+            <div class="dropdown">
+                <button id="dropdown-sort" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    <?php echo $orderText ?>
+                </button>
+                <div class="dropdown-menu">
+                    <a onclick="order(this,'date ASC')" class="dropdown-item" href="#">Tarihe göre (Önce en yeni)</a>
+                    <a onclick="order(this,'date DESC')" class="dropdown-item" href="#">Tarihe göre (Önce en eski)</a>
+                    <a onclick="order(this,'cost ASC')" class="dropdown-item" href="#">Fiyata göre (Önce en düşük)</a>
+                    <a onclick="order(this,'cost DESC')" class="dropdown-item" href="#">Fiyata göre (Önce en yüksek)</a>
+                </div>
+            </div>
+        </div>
+    <?php
+    } else {
+        echo "<div style='width:100%;font-weight:700'>Aramanızla eşleşen sonuç bulunamadı!</div>";
+    }
     $getProperties = $connect->read($getPropertiesQuery);
     while ($row = $getProperties->fetch(PDO::FETCH_ASSOC)) {
         $getImages = $connect->read($getImagesQuery, array($row['id'])); ?>
@@ -87,7 +125,6 @@ try {
 
     }
     if ($pageCount > 0) {
-        echo "toplam " . $pageCount . " sayfa içerisinde " . $raw_offset . ". sayfayı görmektesiniz";
     ?>
         <div class="paginationBar mt-3">
             <?php
@@ -122,6 +159,7 @@ try {
             ?>
         </div>
 <?php
+        echo "<br>Toplam " . $pageCount . " sayfa içerisinde " . $raw_offset . ". sayfayı görmektesiniz";
     }
 } catch (Exception $ex) {
     echo $ex->getMessage();

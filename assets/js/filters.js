@@ -10,7 +10,8 @@ let filters = {
     areaMin: "",
     areaMax: "",
     prop_case: "",
-    offset: 1
+    offset: 1,
+    order: "date DESC"
 };
 
 //handle url params
@@ -39,7 +40,8 @@ function getProperties() {
             areaMax: filters.areaMax,
             costMin: filters.costMin,
             costMax: filters.costMax,
-            offset: filters.offset
+            offset: filters.offset,
+            order: filters.order
         },
         success: (data) => {
             $("#properties").html(data);
@@ -149,7 +151,9 @@ function pagination(e) {
 
 
 
-
-
-
-
+// sort function
+function order(element, o){
+    filters.order = o;
+    getProperties();
+    $("#dropdown-sort").html(element.textContent)
+}
