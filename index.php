@@ -29,6 +29,23 @@ require_once "init.php";
             <?php require_once "loadLastProperties.php" ?>
 
         </section>
+
+        <section id="property-types" class="bg-white">
+            <div class="container-xl">
+                <div class="prop-type-card-wrapper">
+                    <div class="item-property-type">
+                        <img src="assets/img/mustakil_ev.jpg">
+                    </div>
+                    <div class="item-property-type">
+                        <img src="assets/img/ticari.jpg">
+                    </div>
+                    <div class="item-property-type">
+                        <img src="assets/img/arsa.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- section about us -->
         <section id="aboutus" class="bg-white mt-5">
             <?php require_once "loadAboutUs.php" ?>
