@@ -46,8 +46,14 @@ require_once "init.php";
             </div>
         </section>
 
+        <section class="property-cities">
+            <?php 
+            include_once "cityCards.php"
+            ?>
+        </section>
+
         <!-- section about us -->
-        <section id="aboutus" class="bg-white mt-5">
+        <section id="aboutus" class="bg-white">
             <?php require_once "loadAboutUs.php" ?>
         </section>
 
