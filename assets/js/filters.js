@@ -152,8 +152,27 @@ function pagination(e) {
 
 
 // sort function
-function order(element, o){
+function order(element, o) {
     filters.order = o;
     getProperties();
     $("#dropdown-sort").html(element.textContent)
+}
+
+//reset all filters
+
+function resetFilters() {
+    filters.type = ""
+    filters.room = Array()
+    filters.roomJSON = ""
+    filters.city = ""
+    filters.district = ""
+    filters.quarter = ""
+    filters.costMin = ""
+    filters.costMax = ""
+    filters.areaMin = ""
+    filters.areaMax = ""
+    filters.prop_case = ""
+    filters.offset = 1
+    filters.order = "date DESC"
+    getProperties()
 }
