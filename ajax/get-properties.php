@@ -88,7 +88,15 @@ try {
         </div>
     <?php
     } else {
-        echo "<div style='width:100%;font-weight:700'>Aramanızla eşleşen sonuç bulunamadı!</div>";
+    ?> <div class="notfound">
+            <div class="icon-notfound"><i class="fa-solid fa-circle-info"></i></div>
+            <div>
+                <div class="notfound-header">Sonuç Bulunamadı</div>
+                <div class="notfound-body">Aramanıza uygun sonuç bulunamadı. Farklı bir arama yapabilir veya benzer ilanları inceleyebilirsiniz.</div>
+                <div class="btn-reset-filters" onclick="resetFilters()">Tüm Filtreleri Temizle</div>
+            </div>
+        </div>
+    <?php
     }
     $getProperties = $connect->read($getPropertiesQuery);
     while ($row = $getProperties->fetch(PDO::FETCH_ASSOC)) {
