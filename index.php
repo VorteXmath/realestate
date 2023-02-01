@@ -31,23 +31,11 @@ require_once "init.php";
         </section>
 
         <section id="property-types" class="bg-white">
-            <div class="container-xl">
-                <div class="prop-type-card-wrapper">
-                    <div class="item-property-type">
-                        <img src="assets/img/mustakil_ev.jpg">
-                    </div>
-                    <div class="item-property-type">
-                        <img src="assets/img/ticari.jpg">
-                    </div>
-                    <div class="item-property-type">
-                        <img src="assets/img/arsa.jpg">
-                    </div>
-                </div>
-            </div>
+            <?php include_once "typeCards.php" ?>
         </section>
 
         <section class="property-cities">
-            <?php 
+            <?php
             include_once "cityCards.php"
             ?>
         </section>
