@@ -31,7 +31,7 @@ require_once "init.php";
         </section>
 
         <section id="property-types" class="bg-white">
-            <?php include_once "typeCards.php" ?>
+            <?php include_once "loadTypeCards.php" ?>
         </section>
 
         <section class="property-cities">
