@@ -36,7 +36,7 @@ require_once "init.php";
 
         <section class="property-cities">
             <?php
-            include_once "cityCards.php"
+            include_once "loadCityCards.php"
             ?>
         </section>
 
