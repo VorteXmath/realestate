@@ -1,11 +1,11 @@
 //dynamic header
 function dynamicHeader() {
     var header = document.querySelector("header.header-wrap");
-    var height = window.innerHeight + 'px';
+    var height = window.innerHeight - 110 + 'px';
     header.style.height = height;
 
     window.addEventListener('resize', () => {
-        height = window.innerHeight + 'px';
+        height = window.innerHeight - 110 + 'px';
         header.style.height = height;
     });
 }

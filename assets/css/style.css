@@ -74,6 +74,54 @@ header.header-wrap {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 150px;
+}
+
+.header-content {
+    position: relative;
+    width: inherit;
+    height: inherit;
+}
+
+
+.header-content>h4.header-subtitle {
+    -webkit-filter: drop-shadow(10px 10px 10px #222);
+    filter: drop-shadow(10px 10px 10px #222);
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+form.index-filter-form {
+    z-index: 5;
+    position: absolute;
+    bottom: -116px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 10px #000);
+}
+
+@media(max-width:576px) {
+    form.index-filter-form {
+        bottom: -196px
+    }
+    header.header-wrap{
+        margin-bottom: 190px;
+    }
+}
+
+form.index-filter-form>.advanced-radio {
+    height: 45px;
+}
+
+.form-group-city-dropdown-index {
+    background: #ffffff;
+    padding: 25px 40px 25px 40px;
+    border-radius: 0 0 12px 15px;
+    /* width: 1000px; */
 }
 
 nav.navbar {
@@ -389,6 +437,10 @@ span.area {
     z-index: 200;
 }
 
+.btn-header-search {
+    /* background-color: #007BFF; */
+}
+
 i.search {
     padding: 5px 10px;
 }
@@ -601,7 +653,7 @@ button {
     transition-duration: .5s;
     height: 0px;
     overflow: hidden;
-    background: #BAD7E9;
+    background: #ffffff;
 }
 
 .active .filter-card-content {
@@ -718,6 +770,8 @@ button {
 .container-wrapper {
     width: 100%;
     z-index: 1337;
+    position: absolute;
+    transition: .3s all;
 }
 
 .scrolled {
@@ -774,6 +828,7 @@ button {
 
 .content {
     display: none;
+    overflow: hidden;
 }
 
 .loader {
@@ -995,7 +1050,7 @@ section#property-types {
 }
 
 /* city cards on index page */
-.property-cities{
+.property-cities {
     padding: 50px 0;
 }
 
@@ -1028,16 +1083,18 @@ section.property-cities>.container-xl>.featured-cities {
     section.property-cities>.container-xl>.featured-cities {
         flex-direction: column;
     }
-    .featured-cities>.content-area{
+
+    .featured-cities>.content-area {
         align-items: center;
     }
-    .card-cities-wrapper{
+
+    .card-cities-wrapper {
         flex-wrap: wrap;
     }
 }
 
-@media(max-width:523px){
-    .card-city{
+@media(max-width:523px) {
+    .card-city {
         height: 320px;
         margin: 10px 5px;
     }
