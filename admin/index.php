@@ -17,15 +17,12 @@ if (!isset($_SESSION['logon']) or !isset($_SESSION['username']) or !isset($_SESS
 
     <body>
         <div class="d-flex">
-            <?php require_once "loadSideBar.php" ?>
+            <?php  // require_once "loadSideBar.php" 
+            ?>
             <div class="content p-1">
                 <div class="content-header d-flex my-2 p-2">
                     <!-- <div id="toggle-sidebar" class="p-1"><i class="fa-solid fa-bars"></i></div> -->
-                    <div id="toggle-sidebar" class="p-1">
-                        <div class="img-wrapper">
-                            <img src="assets/img/Hamburger_icon.png" alt="">
-                        </div>
-                    </div>
+                    <a href="create.php" class="btn btn-primary">Yeni İlan</a>
                     <div><a id="btn-log-off" class="btn btn-danger" onclick="logOff()" href="#">Çıkış yap<i style="margin-left:5px" class="fa-solid fa-right-from-bracket"></i></a></div>
                 </div>
                 <!-- open filter modal button -->
@@ -34,7 +31,7 @@ if (!isset($_SESSION['logon']) or !isset($_SESSION['username']) or !isset($_SESS
                 <div class="d-flex">
                     <div class="p-0 w-100">
                         <div class="control-stick d-flex justify-content-between p-1">
-                            <div id="btn-filter" class="btn btn-primary">Filtrele</div>
+                            <!-- <div id="btn-filter" class="btn btn-primary">Filtrele</div> -->
                             <div class="d-flex">
                                 <div class="btn-change-page" id="btn-prev-page"><i class="fa-solid fa-chevron-left"></i></div>
                                 <select name="select-page" id="select-page">

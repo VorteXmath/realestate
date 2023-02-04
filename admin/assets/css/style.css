@@ -309,7 +309,6 @@
  }
 
  .content {
-     margin-left: 15%;
      height: 100vh;
      width: 100%;
      background: #eee;
@@ -760,54 +759,6 @@
 
  .radio-row:last-child:hover {
      border-top-right-radius: 5px;
- }
-
- #toggle-sidebar {
-     background: rgb(214, 214, 214);
-     color: #fff;
-     border-radius: 100%;
-     width: 3.15rem;
-     height: 3.15rem;
-     transition: border-radius 0.5s;
- }
-
- #toggle-sidebar:hover {
-     cursor: pointer;
-     background: rgb(196, 196, 196);
- }
-
- /* #toggle-sidebar>i {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     width: 36px;
-     height: 36px;
- } */
-
- #toggle-sidebar>div>img {
-     position: relative;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     width: 0.30rem;
-     height: 2.50rem;
-     object-fit: cover;
-     transition: width 0.5s;
-     border-radius: 1rem;
- }
-
- #toggle-sidebar>div {
-     display: flex;
-     justify-content: center;
- }
-
- #toggle-sidebar.wide>div>img {
-     width: 1.40rem;
-
- }
-
- #toggle-sidebar.wide {
-     border-radius: 5px;
  }
 
  /* emlakhub logo styles start */
