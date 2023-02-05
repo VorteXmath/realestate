@@ -14,20 +14,17 @@ if (isset($_GET['ilan'])) {
 
     </head>
 
-    <body class="bg-light">
+    <body class="">
         <!-- header section -->
         <header class="header">
             <?php require_once "loadNavbar.php" ?>
         </header>
         <!-- header section end -->
-        <!-- prop title wrap -->
-        <section class="prop-title-wrap">
-            <?php require_once "loadPropTitle.php"; ?>
-        </section>
-        <!-- prop title wrap end -->
-        <section class="prop-body-wrap container">
-            <?php require_once "loadPropBody.php" ?>
-        </section>
+
+        <?php require_once "loadPropertyContent.php"?>
+
+
+
         <!-- footer section start -->
         <footer class="col mt-5">
             <?php require_once "loadFooter.php" ?>
@@ -37,16 +34,16 @@ if (isset($_GET['ilan'])) {
         <?php require_once "loadScripts.php" ?>
         <script>
             let printBtn = document.querySelector(".fa-print");
-            printBtn.addEventListener("click", () => window.print())
+            // printBtn.addEventListener("click", () => window.print())
             var owl = $('.owl-carousel');
             owl.owlCarousel({
                 loop: true,
-                // margin: 10,
+                margin: 10,
                 responsiveClass: true,
-                // dotsData:true,
                 dots: true,
-                touchDrag: false,
+                touchDrag: true,
                 mouseDrag: true,
+                center: true,
                 responsive: {
                     0: {
                         items: 1,
@@ -55,10 +52,18 @@ if (isset($_GET['ilan'])) {
                         items: 1,
                     },
                     1000: {
-                        items: 1,
+                        items: 3,
                     }
                 }
             });
+
+            $(".owl-next").on("click", () => {
+                owl.trigger('next.owl.carousel')
+            })
+
+            $(".owl-prev").on("click", () => {
+                owl.trigger('prev.owl.carousel')
+            })
         </script>
     </body>
 
