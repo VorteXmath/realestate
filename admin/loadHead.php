@@ -6,6 +6,7 @@
 <title>asdsad</title>
 
 <!-- bootstrap -->
+<link rel="stylesheet" href="assets/css/advanced-radio.css">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <!-- bootstrap select -->
 <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
