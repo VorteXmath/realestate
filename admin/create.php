@@ -7,9 +7,11 @@
 </head>
 
 <body class="bg-light">
-    <header>
-        <?php include_once "loadNavbar.php" ?>
-    </header>
+    <div class="container pt-3">
+        <a href="index.php" class="btn btn-danger mt-3">
+            Ana Sayfa
+        </a>
+    </div>
     <!-- create section  -->
     <section class="container bg-light align-items-start mt-5 p-3 border" id="create">
         <?php include_once "loadCreateForm.php" ?>
