@@ -15,77 +15,43 @@ if (!isset($_POST['prop_id'])) {
         <?php include_once "loadHead.php" ?>
     </head>
 
+
     <body class="bg-light">
-        <header>
-            <?php include_once "loadNavbar.php" ?>
-        </header>
+        <div class="container pt-3">
+            <a href="index.php" class="btn btn-danger mt-3">
+                Ana Sayfa
+            </a>
+        </div>
         <!-- update section  -->
         <section class="container bg-light align-items-start mt-5 p-3 border" id="create">
             <?php include_once "loadUpdateForm.php" ?>
         </section>
         <?php require_once "loadScripts.php" ?>
         <script>
-            $.ajax({
-                url: "ajax/get-quarters.php",
-                method: 'POST',
-                data: {
-                    district: "<?php echo $resultx['district'] ?> "
-                },
-                success: (data) => {
-                    $("#select-quarter").html(data).selectpicker('refresh');
-                }
-            })
+            getSelectPicker("<?php echo $resultx['city'] ?>", "<?php echo $resultx['district'] ?>"); //app.js
 
-            $.ajax({
-                url: "ajax/get-districts.php",
-                method: 'POST',
-                data: {
-                    city: "<?php echo $resultx['city'] ?> "
-                },
-                success: (data) => {
-                    $("#select-district").html(data).selectpicker('refresh');
-                }
-            });
-
-            getSelectPicker("<?php echo $resultx['city'] ?>", "<?php echo $resultx['district'] ?>");
+            //call jqte textarea editor
             $("#comment").jqte();
-            let propTypes = document.querySelectorAll(".prop-type");
-            propTypes.forEach(e => {
-                if (e.value == "<?php echo $resultx['type'] ?>") {
-                    e.selected = true;
-                }
-            });
 
             $(document).ready(() => {
                 setTimeout(() => {
-
-                    let propRoom = document.querySelectorAll(".option-room");
                     let propCity = document.querySelectorAll(".option-city");
                     let propDistrict = document.querySelectorAll(".option-district");
                     let propQuarter = document.querySelectorAll(".option-quarter");
 
+                    // // propDistrict.forEach(e => {
+                    // // //     if (e.value == "<?php echo $resultx['district'] ?>") {
+                    // //         e.selected = true;
+                    // //         console.log(e)
+                    // //     }
+                    // // })
+                    // // propQuarter.forEach(e => {
+                    // //     if (e.value == "<?php echo $resultx['quarter'] ?>") {
+                    // //         e.selected = true;
+                    // //     }
+                    // // })
 
-                    propRoom.forEach(e => {
-                        if (e.value == "<?php echo $resultx['room'] ?>") {
-                            e.selected = true;
-                        }
-                    });
-                    propCity.forEach(e => {
-                        if (e.value == "<?php echo $resultx['city'] ?>") {
-                            e.selected = true;
-                        }
-                    });
-                    propDistrict.forEach(e => {
-                        if (e.value == "<?php echo $resultx['district'] ?>") {
-                            e.selected = true;
-                        }
-                    })
-                    propQuarter.forEach(e => {
-                        if (e.value == "<?php echo $resultx['quarter'] ?>") {
-                            e.selected = true;
-                        }
-                    })
-                }, 100);
+                }, 1000);
 
 
             })

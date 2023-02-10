@@ -16,6 +16,7 @@ if (!isset($_GET['action'])) {
                 $prop_case = isset($_REQUEST['prop_case']) ? $_REQUEST['prop_case'] : null;
                 $room = isset($_REQUEST['room']) ? $_REQUEST['room'] : null;
                 $area = isset($_REQUEST['area']) ? $_REQUEST['area'] : null;
+                $areaGross = isset($_REQUEST['areaGross']) ? $_REQUEST['areaGross'] : null;
                 $cost = isset($_REQUEST['cost']) ? $_REQUEST['cost'] : null;
                 $age = isset($_REQUEST['age']) ? $_REQUEST['age'] : null;
                 $floor = isset($_REQUEST['floor']) ? $_REQUEST['floor'] : null;
@@ -39,10 +40,9 @@ if (!isset($_GET['action'])) {
                     // $stmt->execute(array($type, $case, $title, $city, $district, $quarter, $comment));
                     // $lastId = $db->lastInsertId();
                     // $connect->$db->commit();
-                    $connect = new Connect();
 
-                    $query = "INSERT INTO tblproperty(type, prop_case, title, city, district, quarter, comment, room, area, cost, age, floor, floors, bathrooms,agent_name,agent_phone,is_furnished,balcony,construct_type,fuel_type,deed_case) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                    $connect->create($query, array($type, $prop_case, $title, $city, $district, $quarter, $comment, $room, $area, $cost, $age, $floor, $floors, $bathroom, $agentName, $agentPhone, $furnished, $balcony, $constructType, $fuel, $deed));
+                    $query = "INSERT INTO tblproperty(type, prop_case, title, city, district, quarter, comment, room, area,area_gross, cost, age, floor, floors, bathrooms,agent_name,agent_phone,is_furnished,balcony,construct_type,fuel_type,deed_case) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    $connect->create($query, array($type, $prop_case, $title, $city, $district, $quarter, $comment, $room, $area, $areaGross, $cost, $age, $floor, $floors, $bathroom, $agentName, $agentPhone, $furnished, $balcony, $constructType, $fuel, $deed));
 
                     //get last insert id to sync prop images 
                     $lastInsertId = $connect->lastInsertId;
@@ -90,6 +90,7 @@ if (!isset($_GET['action'])) {
                 $prop_case = isset($_REQUEST['prop_case']) ? $_REQUEST['prop_case'] : null;
                 $room = isset($_REQUEST['room']) ? $_REQUEST['room'] : null;
                 $area = isset($_REQUEST['area']) ? $_REQUEST['area'] : null;
+                $areaGross = isset($_REQUEST['areaGross']) ? $_REQUEST['areaGross'] : null;
                 $cost = isset($_REQUEST['cost']) ? $_REQUEST['cost'] : null;
                 $age = isset($_REQUEST['age']) ? $_REQUEST['age'] : null;
                 $floor = isset($_REQUEST['floor']) ? $_REQUEST['floor'] : null;
@@ -97,15 +98,33 @@ if (!isset($_GET['action'])) {
                 $bathroom = isset($_REQUEST['bathroom']) ? $_REQUEST['bathroom'] : null;
                 $furnished = isset($_REQUEST['furnished']) ? $_REQUEST['furnished'] : null;
                 $balcony = isset($_REQUEST['balcony']) ? $_REQUEST['balcony'] : null;
+                $constructType = isset($_REQUEST['constructType']) ? $_REQUEST['constructType'] : null;
+                $fuel = isset($_REQUEST['fuel']) ? $_REQUEST['fuel'] : null;
+                $deed = isset($_REQUEST['deedCase']) ? $_REQUEST['deedCase'] : null;
                 $agentName = isset($_SESSION['full_name']) ? $_SESSION['full_name'] : null;
                 $agentPhone = isset($_SESSION['phone']) ? $_SESSION['phone'] : null;
 
 
                 $propertyId = $_POST['propertyId'];
-                $cmdUpdate = "UPDATE tblproperty SET type=?, prop_case=?, title=?, city=?, district=?, quarter=?, comment=?, room=?, area=?, cost=?, age=?, floor=?, floors=?, bathrooms=?,agent_name=?,agent_phone=?,is_furnished=?,balcony=? WHERE id=? ";
-                $connect->update($cmdUpdate, array($type, $prop_case, $title, $city, $district, $quarter, $comment, $room, $area, $cost, $age, $floor, $floors, $bathroom, $agentName, $agentPhone, $furnished, $balcony, $propertyId));
+                $cmdUpdate = "UPDATE tblproperty SET type=?, prop_case=?, title=?, city=?, district=?, quarter=?, comment=?, room=?, area=?,area_gross=?, cost=?, age=?, floor=?, floors=?, bathrooms=?,agent_name=?,agent_phone=?,is_furnished=?,balcony=?, construct_type=?, fuel_type=?, deed_case=? WHERE id=? ";
+                $connect->update($cmdUpdate, array($type, $prop_case, $title, $city, $district, $quarter, $comment, $room, $area, $areaGross, $cost, $age, $floor, $floors, $bathroom, $agentName, $agentPhone, $furnished, $balcony, $constructType, $fuel, $deed, $propertyId));
 
-
+                if (isset($_FILES['images'])) {
+                    $connect->delete("DELETE FROM tblimages WHERE property_id = ?", array($propertyId));
+                    $images = $_FILES['images'];
+                    $imgsTmpName = $images['tmp_name'];
+                    foreach ($imgsTmpName as $index => $value) {
+                        $imgName = $images['name'][$index];
+                        $imgTemp = $images['tmp_name'][$index];
+                        $uniqid = uniqid();
+                        $imgPath = "../assets/data-images/" . $uniqid . "_" . $imgName;
+                        if (move_uploaded_file($imgTemp, $imgPath)) {
+                            $query = "INSERT INTO tblimages(property_id,dir) VALUES (?,?)";
+                            $connect->create($query, array($propertyId, "assets/data-images/" . $uniqid . "_" . $imgName));
+                        }
+                    }
+                }
+                // echo "success";
                 Routing::go("index.php");
             }
     }
