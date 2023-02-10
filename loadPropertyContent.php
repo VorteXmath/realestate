@@ -67,7 +67,7 @@
                                     <tbody>
                                         <tr>
                                             <td>İlan Tarihi</td>
-                                            <td><?php echo $prop['date'] ?></td>
+                                            <td><?php echo date('Y-m-d', strtotime($prop['date'])); ?></td>
                                         </tr>
                                         <tr>
                                             <td>İlan Durumu</td>
@@ -96,8 +96,8 @@
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td>Isınma tipi</td>
-                                            <td>İlan Tarihi</td>
+                                            <td>Tapu Durumu</td>
+                                            <td><?php echo $prop['deed_case'] ?></td>
                                         </tr>
                                         <tr>
                                             <td>Eşya Durumu</td>
@@ -108,16 +108,16 @@
                                             <td><?php echo $prop['bathrooms'] ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Yapı Tipi</td>
+                                            <td>Yapı Malzemesi</td>
                                             <td><?php echo $prop['construct_type'] ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Yakıt Tipi</td>
+                                            <td>Isınma</td>
                                             <td><?php echo $prop['fuel_type'] ?></td>
                                         </tr>
                                         <tr>
                                             <td>Brüt / Net m²</td>
-                                            <td><?php echo $prop['area'] . " m² / " . $prop['area'] . " m²" ?></td>
+                                            <td><?php echo $prop['area_gross'] . " m² / " . $prop['area'] . " m²" ?></td>
                                         </tr>
                                     </tbody>
                                 </table>

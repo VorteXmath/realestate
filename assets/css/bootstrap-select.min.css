@@ -550,3 +550,14 @@ select.selectpicker {
     background: #fff;
     border: 2px solid rgb(203, 203, 203);
 }
+/* /solid styles */
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder.btn-solid {
+    background: #fff;
+    border: 1px solid #bebebe;
+}
+
+.bootstrap-select>.dropdown-toggle.btn-solid {
+    background: #fff;
+    border: 2px solid rgb(203, 203, 203);
+}

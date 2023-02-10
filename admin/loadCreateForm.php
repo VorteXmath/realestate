@@ -11,7 +11,7 @@
     <div class="form-group my-2">
         <label class="me-1" for="type">Emlak Türü:</label><br>
         <select class="selectpicker" name="type" id="type" data-style="btn-secondary">
-            <option value="Konut" selected>Konut</option>
+            <option value="Konut">Konut</option>
             <option value="İşyeri">İşyeri</option>
             <option value="Arsa">Arsa</option>
         </select>

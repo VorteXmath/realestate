@@ -38,7 +38,7 @@ try {
 
         <tr>
             <td class="align-middle text-center col-md-1" scope="col"><?php echo $row['id'] ?></td>
-            <td class="col-md-2" style="height:8rem" scope="col">
+            <td class="col-2" style="height:8rem" scope="col">
                 <div style="height:8rem" class="image-container">
                     <?php
                     while ($imgrow = $getImages->fetch(PDO::FETCH_ASSOC)) { ?>

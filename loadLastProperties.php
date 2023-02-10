@@ -1,7 +1,7 @@
 <?php $connect = new Connect();
 require_once "class/timeAgo.php";
 ?>
-<h2 class="text-center mb-5">Son İlanlar</h2>
+<h3 class="text-center mb-5">SON İLANLAR</h3>
 <!-- <div class="d-flex justify-content-end">
     <div class="btn btn-prev z-index-2">prev</div>
     <div class="btn btn-next z-index-2">next</div>

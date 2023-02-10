@@ -40,7 +40,7 @@ if (isset($_GET['ilan'])) {
                 loop: true,
                 margin: 10,
                 responsiveClass: true,
-                dots: true,
+                dots: false,
                 touchDrag: true,
                 mouseDrag: true,
                 center: true,

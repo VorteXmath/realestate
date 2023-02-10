@@ -289,25 +289,6 @@
      z-index: 1;
  }
 
- .sidebar {
-     font-family: 'nunito-sans', sans-serif;
-     color: #fff;
-     position: fixed;
-     left: -15%;
-     height: 100vh;
-     display: flex;
-     flex-direction: column;
-     width: 15%;
-     padding: 2rem 1rem;
-     background-image: linear-gradient(rgba(0, 0, 0, 0.781), rgba(0, 0, 0, 0.99)), url(../img/side.jpg);
-     z-index: 100;
-     transition: all 0.25s;
- }
-
- .sidebar.active {
-     left: 0;
- }
-
  .content {
      height: 100vh;
      width: 100%;
@@ -706,12 +687,6 @@
      border-top-right-radius: 5px;
  }
 
- .input-number {
-     width: 45px !important;
-     padding: 0 5px !important;
-     margin-left: 6px;
- }
-
  /* filter modal */
  .filter-modal {
      z-index: 99999;
@@ -857,4 +832,8 @@
      max-width: 420px;
      text-overflow: ellipsis;
      white-space: nowrap;
+ }
+
+ #form-update label{
+    font-weight: 500;
  }
