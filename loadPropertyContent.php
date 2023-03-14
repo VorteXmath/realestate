@@ -139,9 +139,9 @@
                 <div class="agent-img col-4">
                     <i class="fa-solid fa-circle-user"></i>
                     <div class="logo logo-agent mt-3">
-                        <a href="index.php">
+                        <!-- <a href="index.php">
                             <h1 class="text-dark">Emlak<span class="mx-0">hub</span></h1>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <div class="col-8 py-2">

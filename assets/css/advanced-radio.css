@@ -1,6 +1,7 @@
 :root {
     --light: #eee;
     --dark: #000;
+    --faded: #f6f6f6;
 
     --blue-background: #009EFF;
     --blue-hover: #1670d6;
@@ -26,15 +27,13 @@
 
 }
 
-.advanced-radio[style-type="grid"] {
+.advanced-radio {
     display: flex;
     border-radius: 3px;
-    box-shadow: inset 0 0 0 1px rgba(35, 33, 45, 0.3), 0 0 0 3px rgba(185, 185, 185, 0.3);
-    padding: 4px;
     width: 100%;
 }
 
-.advanced-radio[style-type="grid"] input[type="radio"] {
+.advanced-radio input[type="radio"] {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -45,18 +44,19 @@
     width: 100%;
     height: 100%;
     padding: 4px;
-    border-radius: 3px;
     padding: 2px 0;
+    font-weight: 500;
+    font-size: 14px;
 }
 
-.advanced-radio[style-type="grid"] input[type="radio"]:hover {
+.advanced-radio input[type="radio"]:hover {
     cursor: pointer;
 }
 
 
 
 
-.advanced-radio[style-type="grid"] input::after {
+.advanced-radio input::after {
     content: attr(label);
     display: flex;
     align-items: center;
@@ -74,7 +74,59 @@
     width: 75%;
 }
 
-/* ~~ color styles ~~ */
+/* ~~~~~~ type styles ~~~~~~ */
+
+/* [style-type='grid'] */
+.advanced-radio[style-type='grid']{
+    padding: 4px;
+    box-shadow: inset 0 0 0 1px rgba(35, 33, 45, 0.3), 0 0 0 3px rgba(185, 185, 185, 0.3);
+
+}
+
+.advanced-radio[style-type='grid'] input[type="radio"] {
+    border-radius: 3px;
+}
+
+
+/* [style-type='tab'] */
+
+.advanced-radio[style-type='tab']{
+}
+
+.advanced-radio[style-type='tab'] input[type="radio"] {
+    padding: 10px 0;
+    border-top: 4px solid rgba(0, 0, 0, 0);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.advanced-radio[style-type='tab'] input[type="radio"]:nth-child(1n+2) {
+    border-left: 1px solid rgb(170, 170, 170);
+}
+
+/* [style-color="light"] */
+
+
+.advanced-radio[style-type="tab"][style-color="light"] {
+    background: var(--faded);
+}
+
+.advanced-radio[style-type="tab"][style-color="light"] input[type="radio"]:hover {
+    background: var(--light-hover);
+    color: var(--dark);
+}
+
+.advanced-radio[style-type="tab"][style-color="light"] input[type="radio"]:checked {
+    border-top: 4px solid red;
+    background: #fff;
+    color: var(--dark);
+}
+
+.advanced-radio[style-type="tab"][style-color="light"] input[type="radio"] {
+    color: var(--dark);
+}
+
+
+/* ~~~~~~ color styles ~~~~~~ */
 
 /* [style-color="blue"] */
 
